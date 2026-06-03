@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adityaco AI</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#0a192f;
+color:white;
+}
+
+header{
+background:#112240;
+padding:15px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:20px auto;
+padding:10px;
+}
+
+#chat{
+height:500px;
+overflow-y:auto;
+background:#112240;
+padding:15px;
+border-radius:12px;
+}
+
+.bot{
+background:#233554;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+}
+
+.user{
+background:#2563eb;
+padding:10px;
+margin:10px 0;
+border-radius:10px;
+text-align:right;
+}
+
+.input-area{
+display:flex;
+margin-top:10px;
+}
+
+input{
+flex:1;
+padding:12px;
+border:none;
+border-radius:10px;
+}
+
+button{
+padding:12px 20px;
+margin-left:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>🤖 Adityaco AI</header>
+
+<div class="container">
+
+<div id="chat">
+<div class="bot">
+Namaste! Main Adityaco AI hoon. Website aur coding problems mein help kar sakta hoon.
+</div>
+</div>
+
+<div class="input-area">
+<input type="text" id="msg" placeholder="Apna message likho...">
+<button onclick="sendMsg()">Send</button>
+</div>
+
+</div>
+
+<script>
+function sendMsg(){
+
+let msg=document.getElementById("msg").value;
+
+if(msg.trim()=="") return;
+
+let chat=document.getElementById("chat");
+
+chat.innerHTML+=`<div class="user">${msg}</div>`;
+
+setTimeout(()=>{
+
+chat.innerHTML+=`
+<div class="bot">
+Maine message receive kar liya: "${msg}"
+</div>
+`;
+
+chat.scrollTop=chat.scrollHeight;
+
+},500);
+
+document.getElementById("msg").value="";
+}
+</script>
+
+</body>
+</html>
